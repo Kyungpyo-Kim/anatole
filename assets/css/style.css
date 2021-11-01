@@ -541,6 +541,7 @@ aside {
   margin: 30px;
   padding: 0px 0 56px 0;
   text-align: center;
+  font-size: 1.4rem;
 }
 
 .pagination ul {
@@ -936,7 +937,7 @@ a.btn {
   display: inherit;
 }
 
-@media screen and (min-width: 960px), print {
+@media screen and (min-width: 961px), print {
   header {
     border-bottom: 1px solid var(--border-color);
   }
@@ -1212,6 +1213,7 @@ a.btn {
   background-color: var(--bg-color);
   border: 1px solid var(--form-border-color);
   color: var(--body-color);
+  font-family: inherit;
 }
 .form-style ul li .field-style:focus {
   box-shadow: 0 0 5px;
