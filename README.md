@@ -28,12 +28,14 @@ Anatole's aims to be minimalistic and sleek but still brings some great function
 - Open Graph support
 - MIT License
 - Fontawesome 5.15.1 icons
+- Google Fonts support
 - Custom CSS (optional)
 - Custom JavaScript (optional)
 - Medium like zoom for images
 - Compliant to strict CSP
 - Syntax highlighting
 - Uses Hugo pipes to process assets
+- Series
 
 ## Preview the exampleSite
 
@@ -367,6 +369,18 @@ googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 Replace the hash with the one Google provided you.
 
+### Google Fonts
+
+You can enable any [Google Font](https://fonts.google.com/) by selecting a font on the Google Font website and adding the `family` parameter of the font url to the `googleFonts` option in `[params]`, e.g.:
+
+```toml
+[params]
+googleFonts = [
+  "Indie+Flower",
+  "Roboto:ital,wght@0,100;0,400;0,700;1,400"
+]
+```
+
 ### Beautiful math functions
 
 ```toml
@@ -636,6 +650,27 @@ toc = true
 ```
 
 Please note that only "## H2 Headings" and "### H3 Headings" will appear in the table of contents.
+
+### Enabling Series
+
+You can enable series, which allows splitting up a huge post into a set of multiple blog posts that are still linked. This would also provide a unique link to the full series of blog posts. Each individual post in the series will also contain links to the other parts under the heading `Posts in this Series`.
+
+First, we need to enable the `series` taxonomy in the config.
+
+```toml
+[taxonomies]
+    category = "categories"
+    series = "series"
+    tag = "tags"
+```
+
+With this enabled, we can now proceed to specify the series in the Front Matter of each post of that series.
+
+```md
+series: - series-name
+```
+
+If you want to share the full series, you can do so by sharing the link `<base-url>/series/<series-name>`
 
 ## License
 
