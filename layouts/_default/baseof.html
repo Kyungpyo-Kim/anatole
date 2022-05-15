@@ -3,20 +3,41 @@
   dir="{{ .Site.Language.LanguageDirection | default "ltr" }}"
   lang="{{- site.Language.Lang -}}"
   data-theme="{{- .Site.Params.displayMode -}}"
+  class="html"
 >
   {{- partial "head.html" . -}}
-  <body>
-    <header>{{ partial "navbar.html" . }}</header>
+  <body
+    {{ if eq .Site.Params.displayMode "dark" }}
+      class="body theme--dark"
+
+    {{ else }}
+      class="body theme--light"
+
+    {{ end }}
+  >
     <div class="wrapper">
-      <aside>
+      <aside
+        {{ if and (not .IsHome) (eq .Site.Params.hidesidebar true) }}
+          class="wrapper__sidebar wrapper__sidebar--hidden"
+
+        {{ else }}
+          class="wrapper__sidebar"
+
+        {{ end }}
+      >
         {{- partial "sidebar.html" . -}}
       </aside>
-      <main>
-        <div class="autopagerize_page_element">
-          <div class="content">
-            {{- block "main" . }}{{- end }}
-          </div>
-        </div>
+      <main
+        {{ if and (not .IsHome) (eq .Site.Params.hidesidebar true) }}
+          class="wrapper__main wrapper__main--fullscreen"
+
+        {{ else }}
+          class="wrapper__main"
+
+        {{ end }}
+      >
+        <header class="header">{{ partial "navbar.html" . }}</header>
+        {{- block "main" . }}{{- end }}
       </main>
     </div>
 
