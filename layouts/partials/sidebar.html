@@ -45,6 +45,15 @@
 
       {{ end }}
     </ul>
+
+    <div class="sidebar__taxonomy_cloud">
+      <h1 class="sidebar__taxonomy_cloud-title">
+          <a href="{{ .Site.BaseURL}}/tags">Tags</a>
+      </h1>
+      {{ partial "taxonomy_cloud" ( dict "Scope" . ) }}
+    </div>
+
   </div>
+  
   {{- partial "footer.html" (dict "context" . "footerClassModifier" "sidebar") -}}
 </div>
