@@ -17,7 +17,6 @@
     {{- $Scratch.Set "sizeStep" 0 -}}
     {{- if gt $countSpread 0 -}}
       {{- $Scratch.Set "sizeStep" ( div $sizeSpread $countSpread ) -}}
-
     {{- end -}}
 
     {{- range $Data.Terms -}}
@@ -29,15 +28,12 @@
           {{- .Page.Title -}}
         </a>
       </li>
-
     {{- end -}}
-
 
   {{- else -}}
     <span>
       {{- $term := ( ( ( i18n $Data.Singular 1 ) | default $Data.Singular ) ) -}}
       {{- i18n "noTerm" ( dict "Term" $term ) -}}
     </span>
-
   {{- end -}}
 </ul>
