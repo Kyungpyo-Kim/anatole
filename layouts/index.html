@@ -55,9 +55,9 @@
           <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         {{ end }}
         {{ if .Site.Params.fullPostContent }}
-          <p>{{ .Content | markdownify }}</p>
+          <p>{{ .Content | safeHTML | plainify }}</p>
         {{ else }}
-          <p>{{ .Summary | markdownify }}</p>
+          <p>{{ .Summary | safeHTML | plainify }}</p>
         {{ end }}
         <!-- add read more -->
         {{- if and (.Truncated) (.Site.Params.readMore) -}}
@@ -96,6 +96,6 @@
     </div>
   {{ end }}
   <div class="pagination">
-    {{ template "partials/pagination.html" . }}
+    {{ partial "pagination.html" . }}
   </div>
 {{ end }}
